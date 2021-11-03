@@ -10,6 +10,11 @@ public struct Rick_MortySDK {
     private var getEpisodeByIdUseCase = GetEpisodeById()
     private var getEpisodesByIdsUseCase = GetEpisodesByIds()
     private var getEpisodeByFilterUseCase = GetEpisodeByFilter()
+    
+    private var getAllLocationsUseCase = GetAllLocations()
+    private var getLocationByIdUseCase = GetLocationById()
+    private var getLocationsByIdsUseCase = GetLocationsByIds()
+    private var getLocationByFilterUseCase = GetLocationByFilter()
 
     public init() {
     }
@@ -44,5 +49,21 @@ public struct Rick_MortySDK {
     
     public func getEpisodeByFilter(name: String?, episode: String?) -> Future <[EpisodeModel], Error> {
         return getEpisodeByFilterUseCase.execute(name: name, episode: episode)
+    }
+    
+    public func getAllLocations() -> Future <[LocationModel], Error>  {
+        return getAllLocationsUseCase.execute()
+    }
+    
+    public func getLocationById(id: Int) -> Future <LocationModel, Error> {
+        return getLocationByIdUseCase.execute(id: id)
+    }
+    
+    public func getLocationsByIds(ids: [Int]) -> Future <[LocationModel], Error> {
+        return getLocationsByIdsUseCase.execute(ids: ids)
+    }
+    
+    public func getCharactersByFilter(name: String?, type: String?, dimension: String?) -> Future <[LocationModel], Error> {
+        return getLocationByFilterUseCase.execute(name: name, type: type, dimension: dimension)
     }
 }
