@@ -18,7 +18,7 @@ Example to get all characters as an array of character struct:
 let client = Rick_MortySDK()
 ```
 
-**2. Call character struct with function**
+**2. Call an SDK method for example: getAllCharacters**
 ```swift
  var cancellable: AnyCancellable?
  cancellable = client.getAllCharacters()
